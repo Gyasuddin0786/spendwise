@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, Info, Trash2, PencilLine } from "lucide-react";
 
 import Sidebar from "./components/Sidebar";
+import { SidebarSkeleton, PageSkeleton } from "./components/LoadingSkeleton";
 import TransactionModal from "./components/TransactionModal";
 
 import Dashboard from "./pages/Dashboard";
@@ -21,8 +22,15 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   const { addTransaction, settings, notifications } = useFinance();
+  const [isLoading, setIsLoading] = useState(true);
   const theme = settings?.theme || "light";
   const isDark = theme === "dark";
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setIsLoading(false), 450);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const seo = useMemo(() => {
     const configs = {
@@ -114,6 +122,10 @@ function App() {
   };
 
   const renderPage = () => {
+    if (isLoading) {
+      return <PageSkeleton isDark={isDark} />;
+    }
+
     switch (page) {
       case "dashboard":
         return (
@@ -174,13 +186,17 @@ function App() {
             : "light-mode min-h-screen bg-slate-100 text-slate-900"
         }
       >
-      <Sidebar
-        page={page}
-        setPage={setPage}
-        open={menu}
-        close={() => setMenu(false)}
-        theme={theme}
-      />
+      {isLoading ? (
+        <SidebarSkeleton isDark={isDark} />
+      ) : (
+        <Sidebar
+          page={page}
+          setPage={setPage}
+          open={menu}
+          close={() => setMenu(false)}
+          theme={theme}
+        />
+      )}
 
       <main
         className={

@@ -1,16 +1,81 @@
-# React + Vite
+# Apna SpentWise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Apna SpentWise is a modern personal finance dashboard designed to help users track income, expenses, budgets, savings goals, and financial reports in one clean interface.
 
-Currently, two official plugins are available:
+## Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This application helps users:
+- monitor daily transactions and category-wise spending
+- create and manage monthly budgets
+- track savings goals and progress
+- view financial reports and analytics
+- customize theme and display currency preferences
+- manage personal finance data with simple local persistence
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Dashboard overview with summary cards and chart insights
+- Transaction management with add, edit, and delete flows
+- Budget planning with category limits and progress indicators
+- Savings goals tracking with contribution support
+- Reports and analytics for income vs expenses analysis
+- Dark/light theme support
+- Currency display customization
+- CSV export and backup import features
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React + Vite
+- JavaScript
+- Tailwind CSS
+- Recharts
+- Lucide React
+- Local storage persistence
+
+## Project Structure
+
+```bash
+src/
+  components/     UI components and shared widgets
+  context/        global finance state and settings
+  data/           initial data and category definitions
+  pages/          dashboard, transactions, budgets, reports, goals, settings
+  utils/          finance helpers and formatters
+```
+
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+## Notes
+
+- The app stores data locally in the browser using `localStorage`.
+- It is designed as a client-side finance dashboard and does not require a backend service.
+- The design focuses on a clean, professional, finance-first experience with responsive layouts.
+
+## License
+
+This project is for demo and educational use.
+
