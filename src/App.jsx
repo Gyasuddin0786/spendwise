@@ -9,7 +9,7 @@ import TransactionModal from "./components/TransactionModal";
 
 import Dashboard from "./pages/Dashboard";
 import Transactions from "./pages/Transactions";
-import Budgets from "./pages/Budgets";
+import Budgets from "./pages/Budgets";  
 import Reports from "./pages/Reports";
 import SavingsGoals from "./pages/Goals";
 import Settings from "./pages/Settings";
@@ -89,7 +89,7 @@ function App() {
       title: isDark ? "text-emerald-300" : "text-emerald-700",
       border: isDark ? "border-emerald-500/40" : "border-emerald-200",
       label: "Created",
-    },
+    },  
     update: {
       ring: "ring-violet-500/30",
       bg: isDark ? "bg-slate-900" : "bg-white",
